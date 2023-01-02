@@ -1,8 +1,9 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import QuoteOverlay from "./quote-overlay.svelte";
+    import type {SpellName} from "../data/model"
 
-    export let name: string;
+    export let name: SpellName;
     let showQuote = false;
 </script>
 
