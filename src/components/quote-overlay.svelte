@@ -51,7 +51,7 @@
         border-radius: 5px;
         background-color: var(--primary);
         border-style: none;
-        padding: 1rem;
+        padding: 0.5rem;
         margin: 1rem;
         color: var(--text-color);
     }
