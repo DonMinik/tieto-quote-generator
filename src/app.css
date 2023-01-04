@@ -1,10 +1,10 @@
 
 :root {
-  --background: #3C6255;
-  --secondary: #61876E;
-  --primary: #A6BB8D;
-  --accent:#EAE7B1;
-  --text-color: #f0efe3;
+  --background: #425F57;
+  --secondary: #749F82;
+  --primary: #A8E890;
+  --accent:#CFFF8D;
+  --text-color: #000;
   font-family:Arial, Helvetica, sans-serif;
   color: var(--text-color);
   
@@ -15,8 +15,12 @@ body {
 }
 
 header {
-  height: 10vh;
+  height: 4rem;
   background-color: var(--secondary);
+  border-bottom: solid 4px ;
+  border-color: var(--accent);
+  position: sticky;
+  top: 0;
 }
 
 main {

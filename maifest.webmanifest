@@ -1,0 +1,15 @@
+{
+    "background_color": "#425F57",
+    "description": "Quotes for Tieto's spells ",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "assets/dive.svg",
+            "sizes": "84x84",
+            "type": "image/svg"
+        }
+    ],
+    "name": "Tieto Quote Generator",
+    "short_name": "Tieto Quotes",
+    "start_url":"/tieto-quote-generator/index.html"
+}

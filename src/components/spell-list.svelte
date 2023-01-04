@@ -7,8 +7,8 @@
     const secondLevelSpells = spells.filter((spell) => spell.level === 2);
 </script>
 
-<div>
-    <h1>Spell List</h1>
+<div class="content">
+    <h2>Spell List</h2>
     <ul class="list">
         {#if cantripSpells.length}
             <li><h3>Cantrips</h3></li>
@@ -39,9 +39,11 @@
 </div>
 
 <style scoped>
-    h1 {
-        padding: 1rem;
-        margin: 0;
+    h2 {
+       margin: 1rem 1rem 1.5rem 1rem    }
+
+    .content {
+        padding: 0.5rem;
     }
 
     .list {
@@ -53,9 +55,10 @@
     }
 
     .spell {
-        margin: 0.5rem;
-        height: 2vh;
         border-top: 1px solid;
-        padding: 1rem;
+        border-color: var(--primary);
+    }
+    ul {
+        margin: 0;
     }
 </style>

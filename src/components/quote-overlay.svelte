@@ -1,13 +1,14 @@
 <script lang="ts">
     import { createEventDispatcher, onMount } from "svelte";
     import { quotes } from "../data/model";
-    import type { Quote, SpellName } from "../data/model";
-    export let spell: SpellName;
+    import type { Quote, Spell } from "../data/model";
+    export let spell: Spell;
     let quote: Quote;
     const dispatch = createEventDispatcher();
 
     onMount(() => {
-        quote = quotes.find((q) => q.suitableFor.find((s) => s === spell));
+        const filteredQuotes = quotes.filter((q) => q.suitableFor.find((s) => s === spell.name | s === spell.category ));
+        quote = filteredQuotes[Math.floor(Math.random() * filteredQuotes.length)]
     });
 
     function close() {
@@ -17,13 +18,13 @@
 
 <div class="overlay">
     <div class="card">
-        <span>Quote: {quote?.text}</span>
+        <span>{quote?.text}</span>
         <button on:click={close}>Close</button>
     </div>
     <div class="overlay-backdrop" />
 </div>
 
-<style>
+<style scoped>
     .overlay {
         position: fixed;
         left: 0;
@@ -46,6 +47,10 @@
         flex-direction: column;
         justify-content: center;
         z-index: 2;
+    }
+
+    .card > span {
+        text-align: center;
     }
     .card > button {
         border-radius: 5px;

@@ -12,35 +12,44 @@
 </div>
 
 {#if showQuote}
-    <QuoteOverlay spell={spell.name} on:close={() => (showQuote = false)} />
+    <QuoteOverlay {spell} on:close={() => (showQuote = false)} />
 {/if}
 
 <style scoped>
     .spell {
+      
         margin: 0.5rem;
     }
 
     .spell > p {
-        margin: 0.25rem;
+        margin: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .spell > p >span {
+        padding: 0.25rem;
     }
 
     .tag {
         border-radius: 4px;
-        padding: 0.25rem;
     }
     .spell .Heal {
-        background-color: rgb(188, 117, 181);
+        background-color: #FFD9C0;
     }
     .spell .Damage {
-        background-color: rgb(218, 93, 65);
+        background-color: #FF9494;
     }
     .spell .Mental {
-        background-color: rgb(136, 65, 218);
+        background-color: #9EA1D4;
     }
     .spell .Support {
-        background-color: rgb(125, 112, 39);
+        background-color:#FAF0D7;
     }
     .spell .Protection {
-        background-color: rgb(59, 79, 168);
+        background-color: #8CC0DE;
+    }
+    .spell .Inspire {
+        background-color: #F6C6EA;
     }
 </style>
