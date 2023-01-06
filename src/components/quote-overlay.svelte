@@ -5,32 +5,37 @@
     export let spell: Spell;
     let quote: Quote;
     const dispatch = createEventDispatcher();
+    
+    let dialog; // Reference to the dialog tag
 
     onMount(() => {
-        const filteredQuotes = quotes.filter((q) => q.suitableFor.find((s) => s === spell.name | s === spell.category ));
-        quote = filteredQuotes[Math.floor(Math.random() * filteredQuotes.length)]
+        const filteredQuotes = quotes.filter((q) => q.suitableFor.find((s) => s === spell.name || s === spell.category ));
+        quote = filteredQuotes[Math.floor(Math.random() * filteredQuotes.length)];
+        dialog = document.getElementById('dialog');
+        dialog['showModal']();
     });
 
     function close() {
         dispatch("close");
+        dialog.close()
     }
 </script>
 
-<div class="overlay">
-    <div class="card">
-        <span>{quote?.text}</span>
-        <button on:click={close}>Close</button>
+<dialog id="dialog" class="overlay">
+    <div>
+        <div class="card">
+            <span>{quote?.text}</span>
+            <button on:click={close}>Close</button>
+        </div>
     </div>
-    <div class="overlay-backdrop" />
-</div>
+</dialog>
 
 <style scoped>
     .overlay {
-        position: fixed;
-        left: 0;
-        top: 0;
+        background: none;
+        border: none;
     }
-    .overlay-backdrop {
+    .overlay:backdrop {
         background-color: #000000;
         opacity: 50%;
         height: 100vh;
@@ -40,8 +45,6 @@
     .card {
         border-radius: 10px;
         background-color: var(--secondary);
-        position: absolute;
-        margin: 40vh 10vw;
         padding: 1rem;
         display: flex;
         flex-direction: column;
