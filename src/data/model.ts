@@ -21,6 +21,11 @@ export  const spells: Spell[] = [
         category: "Protection"
     },
     {
+        name: "Forbidding Ward",
+        level: 0,
+        category: "Protection"
+    },
+    {
         name: "Inspire Courage",
         level: 0,
         category: "Inspire"
